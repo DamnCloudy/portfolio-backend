@@ -46,3 +46,5 @@ jobs:
         with:
           app-name: portfolio-api-counter
           package: .
+          scm-do-build-during-deployment: true
+          enable-oryx-build: true

@@ -1,0 +1,12 @@
+.git/
+.github/
+.terraform/
+.terraform.lock.hcl
+__pycache__/
+*.pyc
+.vscode/
+test_counter.py
+main.tf
+*.tfstate
+*.tfstate.backup
+.gitignore
