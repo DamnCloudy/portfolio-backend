@@ -1,4 +1,12 @@
 terraform {
+    backend "azurerm" {
+    resource_group_name  = "rg-portfolio"
+    storage_account_name = "tfstatecloudportfolio"
+    container_name       = "tfstate"
+    key                  = "portfolio-backend.tfstate"
+    use_azuread_auth     = true
+  }
+  
   required_version = ">= 1.3.0"
   required_providers {
     azurerm = {

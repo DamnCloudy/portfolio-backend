@@ -43,6 +43,7 @@ class TestCounterHttpTrigger(unittest.TestCase):
         mock_get_table_client.return_value = mock_table_client
 
         req = MagicMock()
+        req.headers = {}
         response = fa.counter(req)
 
         self.assertEqual(response.status_code, 200)
