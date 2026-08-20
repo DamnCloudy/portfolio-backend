@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+
+# Terraform
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars
+
+# Azure Functions local secrets
+local.settings.json
+
+# Editor
+.vscode/
