@@ -15,6 +15,7 @@ TABLE_NAME = "VisitorCounter"
 PARTITION_KEY = "counter"
 ROW_KEY = "1"
 
+# trigger rebuild
 
 DEDUPE_WINDOW_SECONDS = 1800  # 30 minutes
 

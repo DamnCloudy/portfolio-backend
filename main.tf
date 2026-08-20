@@ -83,6 +83,7 @@ resource "azurerm_linux_function_app" "fn" {
   app_settings = {
     "FUNCTIONS_WORKER_RUNTIME" = "python"
     "COSMOS_TABLE_ENDPOINT"    = "https://${azurerm_cosmosdb_account.db.name}.table.cosmos.azure.com:443/"
+    "SCM_DO_BUILD_DURING_DEPLOYMENT" = "true"
   }
 
   site_config {
