@@ -41,10 +41,12 @@ jobs:
           terraform init
           terraform apply -auto-approve
 
+      - name: Install Python dependencies into package
+        run: |
+          pip install -r requirements.txt --target=".python_packages/lib/site-packages"
+
       - name: Deploy Function Code
         uses: Azure/functions-action@v1
         with:
           app-name: portfolio-api-counter
           package: .
-          scm-do-build-during-deployment: true
-          enable-oryx-build: true
