@@ -20,15 +20,8 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install Python dependencies into package
-        run: |
-          pip install \
-            --platform manylinux2014_x86_64 \
-            --implementation cp \
-            --python-version 3.11 \
-            --only-binary=:all: \
-            --target=".python_packages/lib/site-packages" \
-            -r requirements.txt
+      - name: Install dependencies (for tests)
+        run: pip install -r requirements.txt
 
       - name: Run tests
         run: python -m unittest test_counter.py -v
@@ -47,6 +40,16 @@ jobs:
         run: |
           terraform init
           terraform apply -auto-approve
+
+      - name: Install Python dependencies into package (for deployment)
+        run: |
+          pip install \
+            --platform manylinux2014_x86_64 \
+            --implementation cp \
+            --python-version 3.11 \
+            --only-binary=:all: \
+            --target=".python_packages/lib/site-packages" \
+            -r requirements.txt
           
       - name: Deploy Function Code
         uses: Azure/functions-action@v1
